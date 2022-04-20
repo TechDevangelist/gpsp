@@ -14,7 +14,7 @@ jobs:
       run: |
         docker run \
         -v ${{ github.workspace }}:/root/workspace \
-        techdevangelist/miyoomini-buildroot:latest /bin/bash -c "cd /root/workspace && make -f Makefile.libretro platform=linux-armv7-cortexa7-neon-hardfloat && echo -n \"Resulting file: \" && ls -lah gpsp_libretro.so && sha1sum gpsp_libretro.so > gpsp_libretro.so.sha1 && sha256sum gpsp_libretro.so > gpsp_libretro.so.sha256"
+        techdevangelist/miyoomini-buildroot:latest /bin/bash -c "cd /root/workspace && make -f Makefile platform=linux-armv7-cortexa7-neon-hardfloat && echo -n \"Resulting file: \" && ls -lah gpsp_libretro.so && sha1sum gpsp_libretro.so > gpsp_libretro.so.sha1 && sha256sum gpsp_libretro.so > gpsp_libretro.so.sha256"
 
     - name: Upload the build artifact
       uses: actions/upload-artifact@v3.0.0
